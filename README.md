@@ -24,6 +24,7 @@ General Commands
 
 File Commands
 - ls
+    - ls -alrt
 - pwd - path name
 - more - see page by page / less
 - touch - create or update file
@@ -55,3 +56,9 @@ File permissions
 7 - Read + Write + Execute
 
 chmod to set permissions to a file
+
+STDIN - keyboard
+STDOUT - screen
+
+exit: shutdown
+logout: hibernate/sleep
