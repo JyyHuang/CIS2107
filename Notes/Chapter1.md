@@ -57,8 +57,10 @@ File permissions
 
 chmod to set permissions to a file
 
-STDIN - keyboard
-STDOUT - screen
+> STDIN - keyboard
 
-exit: shutdown
-logout: hibernate/sleep
+> STDOUT - screen
+
+> exit: shutdown
+
+> logout: hibernate/sleep
