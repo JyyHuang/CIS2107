@@ -42,4 +42,9 @@ Steps for C programming development
 
 Why is the linker important?
 
+A linker links the object code with the code for the missing functions to produce an executable image(with no missing pieces).
+![linker](/screenshots/tQ2.png)
+
+
 The loader is from the operating system and takes the executable image and places it in memory, RAM.
+
