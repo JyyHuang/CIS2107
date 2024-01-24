@@ -1,7 +1,5 @@
 CIS 2107 Notes
 
-- syllabus quiz + some of unix tuesday lab 1/23
-
 ## Chapter 1
 
 - ~ : home directory
@@ -36,7 +34,7 @@ File Commands
 - mkdir - makes a directory
 - rm - removes a directory
 
-File permissions
+# File permissions
 - roles
     - u - for user
     - g - for group
@@ -46,16 +44,32 @@ File permissions
     - w - for write
     - x - for execute
 
+    for directories, read lets you look into directories, write lets you add and remove files, and execute lets you cd into them
+
+3 digit notation
+- the first digit corresponds to the owner(user)
+- the second digit corresponds to the group
+- the third digit corresponds to the others
+
 0 - Deny all
+
 1 - Execute Only
+
 2 - Write Only
+
 3 - Write + Execute
+
 4 - Read Only
+
 5 - Read + Execute
+
 6 - Read + Write
+
 7 - Read + Write + Execute
 
 chmod to set permissions to a file
+example:
+chmod 123 example.txt
 
 > STDIN - keyboard
 
