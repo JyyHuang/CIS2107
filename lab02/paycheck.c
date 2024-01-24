@@ -9,7 +9,7 @@
  * Write a C program to calculate the paycheck for a Temple employee based on hourly salary, work hours, and overtime hours.
  */
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
     double employeeNumber;
     double hourlySalary;
