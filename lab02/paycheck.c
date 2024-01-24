@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /* Joey Huang
- * 1/23/2024
+ * 1/24/2024
  * CIS 2107
  * Lab 02 Paycheck
  * 
