@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     scanf("%lf", &itemPrice);
     if (itemPrice <= 0){
         printf("\n\tThis is not a valid item price.\n\tPlease run the program again\n\n");
-        printf("Thank You for using \"Temple\" store");
+        printf("Thank You for using \"Temple\" store\n");
         exit(1);
     }
 
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
     scanf("%lf", &quantity);
     if (quantity <= 0 || (int) quantity != quantity){
         printf("\n\tThis is not a valid quantity order.\n\tPlease run the program again\n\n");
-        printf("Thank You for using \"Temple\" store");
+        printf("Thank You for using \"Temple\" store\n");
         exit(1);
     }
 
@@ -60,7 +60,7 @@ int main(int argc, char **argv)
     printf("\tThe discount amount is: $%.1lf\n", discountAmount);
     printf("\tThe total is: $%.1lf\n\n", (itemPrice * quantity) - discountAmount);
 
-    printf("Thank You for using \"Temple\" store");
+    printf("Thank You for using \"Temple\" store\n");
 
     exit(0);
 }
