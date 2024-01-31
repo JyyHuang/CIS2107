@@ -12,38 +12,45 @@
 #define BALANCE 5000
 int transactions = 0;
 
-enum Menu{
-    Balance = 1, 
-    Withdraw = 2, 
-    Deposit = 3, 
-    Quit = 4
-};
 
 void valid_pin();
+void quit_program(int);
+void get_balance();
+void withdraw();
+void deposit();
 
 // exit program and print message
-void quit_program(int status){
-    if (status == 0){
-        printf("\nThank you for using \"Temple ATM.\"\nYou have made %d transactions\n", transactions);
-        exit(0);
-    } else{
-        printf("\nThank you for using \"Temple ATM.\"\nYou have made %d transactions\n", transactions);
-        exit(1);
-    }
-}
 
 int main(int argc, char *argv[])      
 {
     int choice = 0;
 
-    printf("%d", balance);
+    const unsigned int Balance = 1;
+    const unsigned int Withdraw = 2;
+    const unsigned int Deposit = 3;
+    const unsigned int Quit = 4;
+
     printf("%s","Welcome to \"Temple ATM.\"\n\n");
 
     valid_pin();
 
-    puts("\nWhich transaction you would like to proceed with:\n\n1. Balance");
+    while (choice != Quit)
+    {
+        puts("\nWhich transaction you would like to proceed with:\n\n1. Balance\n2. Withdraw\n3. Deposit\n4. Quit");
+        scanf("%d", &choice);
 
-    quit_program(0);
+        if (choice == Balance){
+            get_balance();
+        } else if (choice == Withdraw){
+            withdraw();
+        } else if (choice == Deposit){
+            deposit();
+        } else if(choice == Quit){
+            quit_program(0);
+        } else{
+            puts("Please enter a valid option.");
+        }
+    }
 }
 
 void valid_pin(){
@@ -68,3 +75,20 @@ void valid_pin(){
     fprintf(stderr, "%s", "Exceeded maximum number of attempts. Your session will now end.\n");
     quit_program(1);
 };
+
+void quit_program(int status){
+    if (status == 0){
+        printf("\nThank you for using \"Temple ATM.\"\nYou have made %d transactions\n", transactions);
+        exit(0);
+    } else{
+        printf("\nThank you for using \"Temple ATM.\"\nYou have made %d transactions\n", transactions);
+        exit(1);
+    }
+}
+
+void get_balance(){
+    printf("Your total balance is: %d\n", BALANCE);
+}
+void withdraw(){}
+
+void deposit(){}
