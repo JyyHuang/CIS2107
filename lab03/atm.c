@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 
     while (choice != Quit)
     {
-        puts("\nWhich transaction you would like to proceed with?\n\n1. Balance\n2. Withdraw\n3. Deposit\n4. Quit");
+        puts("\nWhich transaction would you like to proceed with?\n\n1. Balance\n2. Withdraw\n3. Deposit\n4. Quit");
         printf("%s", "\nEnter the number: ");
         scanf("%u", &choice);
 
