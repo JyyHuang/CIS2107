@@ -12,8 +12,8 @@
 
 // Macros
 #define SIZE 40
-#define RAND_MIN 0
-#define RAND_MAX 100
+#define RAN_MAX 100
+#define RAN_MIN 0
 
 // Function prototypes
 void fillArray(int array[], int size);
@@ -85,9 +85,9 @@ void fillArray(int array[], int size){
     }
 
     srand( (unsigned) time(NULL));
-
+    
     for (size_t i = 0; i < size; i++){
-        array[i] = rand() % (RAND_MAX + 1) + RAND_MIN;
+        array[i] = rand() % (RAN_MAX + 1) + RAN_MIN + 1;
     }
 }
 
