@@ -87,7 +87,7 @@ void fillArray(int array[], int size){
     srand( (unsigned) time(NULL));
     
     for (size_t i = 0; i < size; i++){
-        array[i] = rand() % (RAN_MAX + 1) + RAN_MIN + 1;
+        array[i] = rand() % (RAN_MAX + 1) + RAN_MIN;
     }
 }
 
