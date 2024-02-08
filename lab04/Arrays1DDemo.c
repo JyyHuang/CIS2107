@@ -21,6 +21,7 @@ int findWithRange(int array[], int lowSelectedRange, int highSelectedRange, int 
 void printArray(int array[], int size);
 void reverseArray(int array[], int size);
 void reverseSelectedRangeWithinArray(int array[], int startRange, int endRange, int size);
+int findSequence(int array[], int size);
 
 // main
 int main(int argc, char *argv[])
@@ -66,6 +67,10 @@ int main(int argc, char *argv[])
     reverseSelectedRangeWithinArray(array, startRange, endRange, SIZE);
     puts("Reversed: ");
     printArray(array, SIZE);
+
+    // Test findSequence
+    printf("%s", "\n\n*** Testing findSequence function ***\n");
+    findSequence(array, SIZE);
 
 
 
@@ -143,8 +148,25 @@ void reverseSelectedRangeWithinArray(int array[], int startRange, int endRange, 
 }
 
 // Find Sequence Among Array
-int findSequence(int array[]){
+int findSequence(int array[], int size){
+    if (size <= 0){
+        puts("Error: Size must be greater than 0.");
+        exit(1);
+    }
 
+    unsigned int num1;
+    unsigned int num2;
+    printf("%s", "Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    for (size_t i = 0; i < size - 1; i++){
+        if (num1 == array[i] && num2 == array[i + 1]){
+            printf("Sequence found at index %d\n", i);
+            return i;
+        }
+    }
+    puts("Sequence not found");
+    return -1;
 }
 
 // Helper function to print array
