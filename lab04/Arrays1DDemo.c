@@ -161,7 +161,7 @@ int findSequence(int array[], int size){
 
     for (size_t i = 0; i < size - 1; i++){
         if (num1 == array[i] && num2 == array[i + 1]){
-            printf("Sequence found at index %d\n", i);
+            printf("Sequence found at index %lu\n", i);
             return i;
         }
     }
