@@ -1,7 +1,7 @@
 /* 
 Name: Joey Huang 
 Date: 02/20/2024
-Course: CSI2107 
+Course: CIS2107 
 HW#: Lab 05: ““Arrays of Pointers to Functions” 
 
 Objective: To design and implement array of function pointer. 
@@ -64,6 +64,7 @@ int main()
      
 }
 
+// print array
 void printArray(int students, int exams, int grades[students][exams]){
     puts("The array is: ");
     printf("%s", "        ");
@@ -109,6 +110,7 @@ void maximum(int students, int exams, int grades[students][exams]){
     printf("Highest Grade: %d\n", highGrade);
 }
 
+//Find average
 void average(int students, int exams, int grades[students][exams]){
     for (int i = 0; i < students; ++i){
         float curr_sum = 0;
