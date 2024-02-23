@@ -42,7 +42,7 @@ int main()
     }
     
     // Initialize array of pointers to functions
-    void (*processGrades[4])(int students, int, int grades[students][exams]) = {printArray, minimum, maximum, average};
+    void (*processGrades[4])(int students, int exams, int grades[students][exams]) = {printArray, minimum, maximum, average};
 
     // menu loop
     size_t choice;
