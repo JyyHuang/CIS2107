@@ -1,4 +1,4 @@
-l//Joey Huang
+//Joey Huang
 //02/28/2024
 //CIS2017 Lab7: Race
 //The purpose of this program is to simulate and display the race between the tortoise and the hare using a random number
@@ -36,8 +36,17 @@ int main(){
         tortMove(&tPos);    
         printRace(hPos,tPos);
         puts("");
+        if (hPos >= 70 && tPos >= 70){
+            puts("Its a tie!");
+            exit(0);
+        } else if (tPos >= 70) {
+            puts("TORTOISE WINS!!! YAY!!!");
+            exit(0);
+        } else if (hPos >= 70) {
+            puts("Hare wins. Yuch.");
+            exit(0);
+        } 
     }                              
-
 }
 
 //Finds minimum of hare or tortoise position to decide which position to print first
@@ -53,7 +62,25 @@ int min(int hMin, int tMin){
 
 //Prints the position of the H and T
 void printRace(int hPos,int tPos){
-    
+    // Equal
+    if (min(hPos, tPos) == 0){
+        printf("\t%*s", hPos - 1, "");
+        printf("%s\n", "OUCH!!!");
+    } 
+    // Print hare first
+    else if (min(hPos, tPos) == hPos){
+        printf("\t%*s", hPos - 1, "");
+        printf("%c", 'H');
+        printf("%*s", tPos - hPos - 1, "");
+        printf("%c\n", 'T');
+    } 
+    // Print tortoise first
+    else{
+        printf("\t%*s", tPos - 1, "");
+        printf("%c", 'T');
+        printf("%*s", hPos - tPos - 1, "");
+        printf("%c\n", 'H');
+    }
 }
 
 //Controls the tortoise movement
@@ -68,7 +95,7 @@ void tortMove(int *tPtr){
     }
     
     // Checks if positon is less than 1
-    if (*tPtr > 1) *tPtr = 1;
+    if (*tPtr < 1) *tPtr = 1;
 }
 
 //Controls the hare movement
@@ -86,14 +113,14 @@ void hareMove(int *hPtr){
     } else if (move_type >= 6 && move_type <= 8){
         *hPtr += 1;
     } else {
-        *ptr -= 2 ;
+        *hPtr -= 2;
     }
 
     // Checks if positon is less than 1
-    if (*hPtr > 1) *hPtr = 1;
+    if (*hPtr < 1) *hPtr = 1;
 }
 
 //Generates random number from 1-10
 int randomNumberGenerator(){
-    return (rand() % INT_MAX + RAND_MIN);
+    return (rand() % INT_MAX + INT_MIN);
 }
