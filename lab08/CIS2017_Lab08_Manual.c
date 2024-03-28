@@ -28,8 +28,8 @@ int countSubstr (char * line, char * sub);
 int countChar (char * line, char c);
 int countWords(char *string);
 void countAlpha(char *string);
-void startsWithB(char *string[]);
-void endsWithed(char *string[]);
+void startsWithB(char *string[], int size);
+void endsWithed(char *string[], int size);
 
 int main() {
 
@@ -74,6 +74,7 @@ int main() {
 
     //test for countAlpha
     char str1[] = "Hello it's me.";
+    printf("\nNumber of each letter in %s\n", str1);
     countAlpha(str1);
 
     //test for countWords
@@ -82,10 +83,11 @@ int main() {
 
     //test for startsWithB
     char *series[] = {"bored", "hello", "Brother", "manual", "bothered"};
-    startsWithB(series);
+    int size = sizeof(series) / sizeof(series[0]);
+    startsWithB(series, size);
 
     //test for endsWithed
-    endsWithed(series);
+    endsWithed(series, size);
 
 }
 
@@ -113,13 +115,13 @@ float convertStrtoFloat(const char *s1, const char *s2, const char *s3, const ch
 // 4.(Comparing Strings) 
 void compareStr(const char *s1, const char *s2) {
     if (strcmp(s1, s2) == 0){
-        printf("\n%s == %s\n", s1, s2);
+        printf("\n\n%s == %s", s1, s2);
     }
     else if (strcmp(s1, s2) < 0){
-        printf("\n%s < %s\n", s1, s2);
+        printf("\n\n%s < %s", s1, s2);
     }
     else{
-        printf("\n%s > %s\n", s1, s2);
+        printf("\n\n%s > %s", s1, s2);
     }
 }
 
@@ -139,7 +141,6 @@ void comparePartialStr(const char *s1, const char *s2, int n) {
 
 //6.(Random Sentences) 
 void randomize(void) {
-    srand(time(NULL));
     char* article[] = {"the", "a", "one", "some", "any"};
     char* noun[] = {"boy", "girl", "dog", "town", "car"};
     char* verb[] = {"drove", "jumped", "ran", "walked", "skipped"};
@@ -188,38 +189,73 @@ void reverse(char *text) {
 
 //9.(Counting the Occurrences of a Substring) 
 int countSubstr (char * line, char * sub) {
-  
-  
+    int count = 0;
+    char* ptr = line;
+    while ((ptr = strstr(ptr, sub)) != NULL) {
+        ptr += strlen(sub);
+        count++;
+    }
+    return count;
 }
 
 //10.(Counting the Occurrences of a Character) 
 int countChar (char *line, char c) {
-  
-  
+    int count = 0;
+    char* ptr = line;
+    while ((ptr = strchr(ptr, c)) != NULL) {
+        ptr++;
+        count++;
+    }
+    return count;
 }
 
 
 //11.(Counting the Letters of the Alphabet in a String) 
 void countAlpha(char *string) {
- 
- 
+    char* alphabet = "abcdefghijklmnopqrstuvwxyz";
+    int countLetters[26] = {0};
+
+    for (int i = 0; string[i] != '\0'; ++i) {
+        string[i] = tolower(string[i]);
+    }
+
+    for (int i = 0; i < 26; ++i){
+        char c = alphabet[i];
+        char cUpper = toupper(alphabet[i]);
+        int count = countChar(string, c);
+        countLetters[i] = count; 
+        printf("%c, %c | %d\n", cUpper, c, countLetters[i]);
+    }
 }
 
 //12.(Counting the Number of Words in a String) 
 int countWords(char *string) {
-   
-   
+    char* token = strtok(string, " \n");
+    int count = 0;
+
+    while (token != NULL){
+        count++;
+        token = strtok(NULL, " \n");
+    }
+    return count;
 }
 
 //13.(Strings Starting with "b") 
-void startsWithB(char *string[]) {
-
- 
-
+void startsWithB(char *string[], int size) {
+    for (int i = 0; i < size; ++i) {
+        if (tolower(*string[i]) == 'b'){
+            printf("%s ",string[i]);
+        }
+    }
+    puts("");
 }
 
 //14.(Strings Ending with "ed") 
-void endsWithed(char *string[]) {
-
-
+void endsWithed(char *string[], int size) {
+    for (int i = 0; i < size; ++i) {
+        if ((tolower(string[i][strlen(string[i]) - 1]) == 'd') && (tolower(string[i][strlen(string[i]) - 2]) == 'e')){
+            printf("%s ",string[i]);
+        }
+    }
+    puts("");
 }
